@@ -2,6 +2,7 @@ package com.timplifier.oauth20.data.remote.dtos
 
 
 import com.google.gson.annotations.SerializedName
+import com.timplifier.oauth20.domain.models.AuthTokenModel
 
 data class AuthTokenDto(
     @SerializedName("access_token")
@@ -17,3 +18,6 @@ data class AuthTokenDto(
     @SerializedName("token_type")
     val tokenType: String
 )
+
+fun AuthTokenDto.toDomain() =
+    AuthTokenModel(accessToken, createdAt, expiresIn, refreshToken, scope, tokenType)

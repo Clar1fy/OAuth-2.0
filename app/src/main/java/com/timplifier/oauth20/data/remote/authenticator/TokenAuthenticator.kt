@@ -20,7 +20,7 @@ class TokenAuthenticator : Authenticator {
 
         val token = getNewRefreshedToken()
         return response.request.newBuilder()
-            .header("Authorization", "Bearer ${token.body()?.refreshToken}")
+            .header("Authorization", "Bearer ${token.accessToken}")
             .build()
     }
 
